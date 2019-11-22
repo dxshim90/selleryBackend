@@ -8,8 +8,37 @@
 
 
 categories = ["Home", "Clothing", "Footwear", 'Electronic', "Garden"]
+stores = ['Dans Sportswear', "Snazzy Trainers", 'Homebase Garden']
+products = [{
+    title: 'Product A',
+    description: 'Product A',
+    store_id: 1 
+},
+{
+    title: 'Product B',
+    description: 'Product B',
+    store_id: 2
+},
+{
+    title: 'Product C',
+    description: 'Product C',
+    store_id: 3
+}]
+
+stores.each do |store|
+    Store.create!(name: store, description: 'This is a test store')
+end
+
 
 
 categories.each do |category|
     Category.create(name: category)
+end
+
+products.each do |product|
+    Product.create(
+        title: product[:title],
+        description: product[:description],
+        store_id: product[:store_id]
+    )
 end
